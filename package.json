@@ -1,0 +1,11 @@
+{
+  "name": "psv",
+  "version": "0.0.0",
+  "description": "Pretty simple validator",
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5"
+  }
+}
