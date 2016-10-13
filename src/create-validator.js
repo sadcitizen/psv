@@ -1,11 +1,11 @@
 export default function (message, definition) {
     return function (value) {
-        let error = '';
+        let error = typeof message === 'function' ? message(value) : message;
         let isValid = false;
 
         if (definition(value)) {
             isValid = true;
-            error = typeof message === 'function' ? message(value) : message;
+            error = '';
         }
 
         return { isValid, error };
