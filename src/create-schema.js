@@ -1,3 +1,5 @@
+import getValue from 'doremi/object/get-value';
+
 export default function (validators) {
     return function (value) {
         const keys = Object.keys(validators);
@@ -7,7 +9,7 @@ export default function (validators) {
         let result;
 
         keys.forEach(key => {
-            result = validators[key](value[key], value);
+            result = validators[key](getValue(value, key), value);
 
             if (!result.isValid) {
                 isValid = false;
