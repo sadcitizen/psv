@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import required from './required';
 
-describe.only('validators/required', () => {
+describe('validators/required', () => {
     let requiredField = required('The value must be defined')();
 
     it('return valid result', () => {

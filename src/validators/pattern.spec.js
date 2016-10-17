@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import pattern from './pattern';
 
-describe.only('validators/pattern', () => {
+describe('validators/pattern', () => {
     const digits = /^[0-9]+$/;
     let onlyDigits = pattern('The value must contain only digits')(digits);
 
