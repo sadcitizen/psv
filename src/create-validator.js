@@ -1,13 +1,13 @@
-export default function (message, definition) {
-    return function (value) {
-        let error = typeof message === 'function' ? message(value) : message;
-        let isValid = false;
+import stringify from './internal/stringify';
 
-        if (definition(value)) {
-            isValid = true;
-            error = '';
-        }
+export default definition => message => (...options) => value => {
+    let error = typeof message === 'function' ? message(stringify(value)) : message;
+    let isValid = false;
 
-        return { isValid, error };
+    if (definition(value, ...options)) {
+        isValid = true;
+        error = '';
     }
+
+    return { isValid, error };
 }
