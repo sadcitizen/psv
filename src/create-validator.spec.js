@@ -13,8 +13,13 @@ describe('createValidator', () => {
     it('returns a valid validation result', () => {
         const result = isEven('The value must be an even number')()(2);
 
-        expect(result).to.have.property('isValid').that.is.a('boolean');
-        expect(result).to.have.property('error').that.is.a('string');
+        expect(result).to.have.property('isValid')
+            .that.is.a('boolean')
+            .that.equal(true);
+
+        expect(result).to.have.property('error')
+            .that.is.a('string')
+            .that.equal('');
     });
 
     it('works with error message as function', () => {
@@ -22,7 +27,12 @@ describe('createValidator', () => {
 
         const result = isOdd(value => `${value} is not an odd number`)()(2);
 
-        expect(result).to.have.property('isValid').that.is.a('boolean');
-        expect(result).to.have.property('error').that.is.a('string');
+        expect(result).to.have.property('isValid')
+            .that.is.a('boolean')
+            .that.equal(false);
+
+        expect(result).to.have.property('error')
+            .that.is.a('string')
+            .that.equal('2 is not an odd number');
     });
 });
