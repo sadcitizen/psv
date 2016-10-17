@@ -34,6 +34,3 @@ describe('validators/pattern', () => {
         expect(onlyDigits(/\d+/ig)).to.deep.equal({ isValid: false, error: '"/\\d+/gi" must contain only digits' });
     });
 });
-
-
-//'The value must match provided pattern'
