@@ -1,4 +1,5 @@
 import { expect } from 'chai';
+import sinon from 'sinon';
 import createQueue from './create-queue';
 import createValidator from './create-validator';
 import required from './validators/required';
@@ -39,5 +40,22 @@ describe('createQueue', () => {
         expect(result).to.have.property('error')
             .that.is.a('string')
             .that.equal('The value must be an even number');
+    });
+
+    it('do not call next if previous validator return invalid result', () => {
+        const firstStub = sinon.stub().returns({ isValid: true, error: '' });
+        const secondStub = sinon.stub().returns({ isValid: false, error: 'Stub error' });
+        const thirdStub = sinon.stub().returns({ isValid: true, error: '' });
+
+        const queue = createQueue(
+            firstStub,
+            secondStub,
+            thirdStub
+        );
+
+        expect(queue('hi!')).to.deep.equal({ isValid: false, error: 'Stub error' });
+        expect(firstStub.calledWith('hi!')).to.be.true;
+        expect(secondStub.calledWith('hi!')).to.be.true;
+        expect(thirdStub.called).to.be.false;
     });
 });
