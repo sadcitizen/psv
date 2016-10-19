@@ -10,7 +10,7 @@ describe('createValidator', () => {
         expect(isEven()()).to.be.a('function');
     });
 
-    it('returns a valid validation result', () => {
+    it('returns valid result', () => {
         const result = isEven('The value must be an even number')()(2);
 
         expect(result).to.have.property('isValid')

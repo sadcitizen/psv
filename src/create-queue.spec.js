@@ -18,7 +18,7 @@ describe('createQueue', () => {
         expect(queue).to.be.a('function');
     });
 
-    it('returns a valid result', () => {
+    it('returns valid result', () => {
         const result = queue(2);
 
         expect(result).to.have.property('isValid')
