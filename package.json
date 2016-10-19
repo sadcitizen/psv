@@ -23,6 +23,6 @@
     "sinon": "^1.17.6"
   },
   "dependencies": {
-    "doremi": "0.0.13"
+    "doremi": "0.0.14"
   }
 }
