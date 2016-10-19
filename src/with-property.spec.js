@@ -32,6 +32,6 @@ describe('withProperty', () => {
 
         expect(result).to.have.property('error')
             .that.is.a('string')
-            .that.equal('The value must be greater than six');
+            .that.equal('The value must be greater than 6');
     });
 });
