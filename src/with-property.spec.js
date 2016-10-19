@@ -4,8 +4,7 @@ import greaterThan from './validators/greater-than';
 
 describe('withProperty', () => {
     const message = (value, minValue) => `The value must be greater than ${minValue}`;
-    const lengthGreaterThan = withProperty(greaterThan(message), 'length');
-    const lengthGreaterThanSix = lengthGreaterThan(6);
+    const lengthGreaterThanSix = withProperty(greaterThan(message)(6), 'length');
 
     it('returns a function', () => {
         expect(lengthGreaterThanSix).to.be.a('function');

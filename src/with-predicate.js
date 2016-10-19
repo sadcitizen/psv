@@ -1,3 +1,3 @@
-export default (fn, predicate) => (...options) => value => predicate(value, ...options)
-    ? fn(...options)(value)
+export default (validator, predicate) => value => predicate(value)
+    ? validator(value)
     : { isValid: true, error: '' };
