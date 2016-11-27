@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import equalTo from './equal-to';
+import equalTo from '.';
 
 describe('validators/equalTo', () => {
     let equalToFive = equalTo('The value must be equal to 5')(5);

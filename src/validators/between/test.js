@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import between from './between';
+import between from '.';
 
 describe('validators/between', () => {
     let betweenTenAndTwenty = between('The value must be between 10 and 20')(10, 20);

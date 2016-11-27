@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import pattern from './pattern';
+import pattern from '.';
 
 describe('validators/pattern', () => {
     const digits = /^[0-9]+$/;
@@ -29,8 +29,8 @@ describe('validators/pattern', () => {
         expect(onlyDigits('lorem')).to.deep.equal({ isValid: false, error: '"lorem" must contain only digits' });
         expect(onlyDigits()).to.deep.equal({ isValid: false, error: '"undefined" must contain only digits' });
         expect(onlyDigits(null)).to.deep.equal({ isValid: false, error: '"null" must contain only digits' });
-        expect(onlyDigits({})).to.deep.equal({ isValid: false, error: '"{}" must contain only digits' });
-        expect(onlyDigits([])).to.deep.equal({ isValid: false, error: '"[]" must contain only digits' });
+        expect(onlyDigits({})).to.deep.equal({ isValid: false, error: '"[object Object]" must contain only digits' });
+        expect(onlyDigits([])).to.deep.equal({ isValid: false, error: '"" must contain only digits' });
         expect(onlyDigits(/\d+/ig)).to.deep.equal({ isValid: false, error: '"/\\d+/gi" must contain only digits' });
     });
 });

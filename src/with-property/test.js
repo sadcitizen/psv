@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import withProperty from './with-property';
-import greaterThan from './validators/greater-than';
+import withProperty from '.';
+import greaterThan from '../validators/greater-than';
 
 describe('withProperty', () => {
     const message = (value, minValue) => `The value must be greater than ${minValue}`;

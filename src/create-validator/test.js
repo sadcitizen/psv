@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import createValidator from './create-validator';
+import createValidator from '.';
 
 describe('createValidator', () => {
     const isEven = createValidator(value => value % 2 === 0);

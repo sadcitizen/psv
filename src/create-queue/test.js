@@ -1,8 +1,8 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
-import createQueue from './create-queue';
-import createValidator from './create-validator';
-import required from './validators/required';
+import createQueue from '.';
+import createValidator from '../create-validator';
+import required from '../validators/required';
 
 const isNumber = createValidator(value => typeof value === 'number');
 const isEven = createValidator(value => value % 2 === 0);

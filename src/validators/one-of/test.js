@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import oneOf from './one-of';
+import oneOf from '.';
 
 describe('validators/oneOf', () => {
     const colors = ['#cc0000', '#00cc00', '#0000cc'];

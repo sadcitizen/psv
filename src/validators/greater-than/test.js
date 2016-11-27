@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import greaterThan from './greater-than';
+import greaterThan from '.';
 
 describe('validators/greaterThan', () => {
     let greaterThanFive = greaterThan('The value must be greater than 5')(5);

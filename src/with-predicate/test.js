@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import withPredicate from './with-predicate';
-import pattern from './validators/pattern';
+import withPredicate from '.';
+import pattern from '../validators/pattern';
 
 describe('withPredicate', () => {
     const digits = /^[0-1]+$/;

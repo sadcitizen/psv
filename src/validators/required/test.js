@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import required from './required';
+import required from '.';
 
 describe('validators/required', () => {
     let requiredField = required('The value must be defined')();

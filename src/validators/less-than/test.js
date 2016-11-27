@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import lessThan from './less-than';
+import lessThan from '.';
 
 describe('validators/lessThan', () => {
     let lessThanFive = lessThan('The value must be less than 5')(5);

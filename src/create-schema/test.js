@@ -1,12 +1,12 @@
 import { expect } from 'chai';
-import createQueue from './create-queue';
-import createSchema from './create-schema';
-import createValidator from './create-validator';
-import withPredicate from './with-predicate';
-import withProperty from './with-property';
-import greaterThan from './validators/greater-than';
-import pattern from './validators/pattern';
-import required from './validators/required';
+import createQueue from '../create-queue';
+import createSchema from '.';
+import createValidator from '../create-validator';
+import withPredicate from '../with-predicate';
+import withProperty from '../with-property';
+import greaterThan from '../validators/greater-than';
+import pattern from '../validators/pattern';
+import required from '../validators/required';
 
 describe('createSchema', () => {
     const letters = /^[a-zA-Z]+$/;
