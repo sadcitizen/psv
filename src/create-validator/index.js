@@ -1,8 +1,8 @@
-export default definition => message => (...options) => (value, fields) => {
+export default definition => (message, ...options) => (value, fields) => {
     let error = typeof message === 'function' ? message(value, ...options) : message;
     let isValid = false;
 
-    if (definition(value, ...options, fields)) {
+    if (options.length ? definition(value, ...options, fields) : definition(value, fields)) {
         isValid = true;
         error = '';
     }
