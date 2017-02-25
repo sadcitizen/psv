@@ -10,32 +10,32 @@ import required from '../validators/required';
 
 describe('createSchema', () => {
     const letters = /^[a-zA-Z]+$/;
-    const lengthValidator = (field, limit) => withProperty(greaterThan((value, minValue) => `${field} must have at least ${minValue + 1} characters`)(limit), 'length')
+    const lengthValidator = (field, limit) => withProperty(greaterThan((value, minValue) => `${field} must have at least ${minValue + 1} characters`, limit), 'length')
 
     const firstNameValidator = createQueue(
-        required('First name must be defined')(),
-        pattern('Incorrect first name')(letters)
+        required('First name must be defined'),
+        pattern('Incorrect first name', letters)
     );
 
-    const lastNameValidator = withPredicate(pattern('Incorrect last name')(letters), value => !!value.length);
+    const lastNameValidator = withPredicate(pattern('Incorrect last name', letters), value => !!value.length);
 
     const loginValidator = createQueue(
-        required('Login must be defined')(),
+        required('Login must be defined'),
         lengthValidator('Login', 4)
     );
 
     const emailValidator = createQueue(
-        required('Email must be defined')(),
-        pattern('Incorrect email')(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/)
+        required('Email must be defined'),
+        pattern('Incorrect email', /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/)
     );
 
     const passwordValidator = createQueue(
-        required('Password must be defined')(),
+        required('Password must be defined'),
         lengthValidator('Password', 5)
     );
 
     const passwordConfirmPredicate = (passwordConfirm, fields) => passwordConfirm === fields.password;
-    const passwordConfirmValidator = createValidator(passwordConfirmPredicate)('Passwords do not match')();
+    const passwordConfirmValidator = createValidator(passwordConfirmPredicate)('Passwords do not match');
 
     const registerFormSchema = createSchema({
         firstName: firstNameValidator,
