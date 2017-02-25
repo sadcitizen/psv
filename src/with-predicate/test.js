@@ -6,7 +6,8 @@ describe('withPredicate', () => {
     const digits = /^[0-1]+$/;
     const message = 'The value must be binary number or empty string';
     const predicate = value => !!value.length;
-    const isBinaryOrEmptyString = withPredicate(pattern(message)(digits), predicate);
+    const isBinary = pattern(message, digits);
+    const isBinaryOrEmptyString = withPredicate(isBinary, predicate);
 
     it('returns a function', () => {
         expect(isBinaryOrEmptyString).to.be.a('function');
