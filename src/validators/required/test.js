@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import required from '.';
 
 describe('validators/required', () => {
-    let requiredField = required('The value must be defined')();
+    let requiredField = required('The value must be defined');
 
     it('return valid result', () => {
         const result = { isValid: true, error: '' };
@@ -24,7 +24,7 @@ describe('validators/required', () => {
     });
 
     it('return invalid result with error message defined as function', () => {
-        requiredField = required(value => `"${value}" is empty value`)();
+        requiredField = required(value => `"${value}" is empty value`);
 
         expect(requiredField('')).to.deep.equal({ isValid: false, error: '"" is empty value' });
         expect(requiredField('    ')).to.deep.equal({ isValid: false, error: '"    " is empty value' });

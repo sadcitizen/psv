@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import equalTo from '.';
 
 describe('validators/equalTo', () => {
-    let equalToFive = equalTo('The value must be equal to 5')(5);
+    let equalToFive = equalTo('The value must be equal to 5', 5);
 
     it('return valid result', () => {
         const result = { isValid: true, error: '' };
@@ -21,7 +21,7 @@ describe('validators/equalTo', () => {
     });
 
     it('return invalid result with error message defined as function', () => {
-        equalToFive = equalTo(value => `"${value}" is not equal to 5`)(5);
+        equalToFive = equalTo(value => `"${value}" is not equal to 5`, 5);
 
         expect(equalToFive(4)).to.deep.equal({ isValid: false, error: '"4" is not equal to 5' });
         expect(equalToFive([0, 1, 2].length)).to.deep.equal({ isValid: false, error: '"3" is not equal to 5' });

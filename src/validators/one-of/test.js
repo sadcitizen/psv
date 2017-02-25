@@ -3,7 +3,7 @@ import oneOf from '.';
 
 describe('validators/oneOf', () => {
     const colors = ['#cc0000', '#00cc00', '#0000cc'];
-    let oneOfColors = oneOf('The color must be one of "colors"')(colors);
+    let oneOfColors = oneOf('The color must be one of "colors"', colors);
 
     it('return valid result', () => {
         colors.forEach(color => {
@@ -16,7 +16,7 @@ describe('validators/oneOf', () => {
     });
 
     it('return invalid result with error message defined as function', () => {
-        oneOfColors = oneOf(color => `${color} is not one of "colors"`)(colors);
+        oneOfColors = oneOf(color => `${color} is not one of "colors"`, colors);
 
         expect(oneOfColors('#ccf000')).to.deep.equal({ isValid: false, error: '#ccf000 is not one of "colors"' });
     });

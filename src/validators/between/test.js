@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import between from '.';
 
 describe('validators/between', () => {
-    let betweenTenAndTwenty = between('The value must be between 10 and 20')(10, 20);
+    let betweenTenAndTwenty = between('The value must be between 10 and 20', 10, 20);
 
     it('return valid result', () => {
         const result = { isValid: true, error: '' };
@@ -21,7 +21,7 @@ describe('validators/between', () => {
     });
 
     it('return invalid result with error message defined as function', () => {
-        betweenTenAndTwenty = between(value => `"${value}" must be between 10 and 20`)(10, 20);
+        betweenTenAndTwenty = between(value => `"${value}" must be between 10 and 20`, 10, 20);
 
         expect(betweenTenAndTwenty(9)).to.deep.equal({ isValid: false, error: '"9" must be between 10 and 20' });
         expect(betweenTenAndTwenty(21)).to.deep.equal({ isValid: false, error: '"21" must be between 10 and 20' });
