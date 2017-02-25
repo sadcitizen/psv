@@ -9,9 +9,9 @@ const isEven = createValidator(value => value % 2 === 0);
 
 describe('createQueue', () => {
     const queue = createQueue(
-        required('The value must be defined')(),
-        isNumber('The value must be a number')(),
-        isEven('The value must be an even number')()
+        required('The value must be defined'),
+        isNumber('The value must be a number'),
+        isEven('The value must be an even number')
     );
 
     it('returns a function', () => {

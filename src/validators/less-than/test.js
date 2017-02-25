@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import lessThan from '.';
 
 describe('validators/lessThan', () => {
-    let lessThanFive = lessThan('The value must be less than 5')(5);
+    let lessThanFive = lessThan('The value must be less than 5', 5);
     const digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
     const lorem = 'lorem ipsum';
 
@@ -23,7 +23,7 @@ describe('validators/lessThan', () => {
     });
 
     it('return invalid result with error message defined as function', () => {
-        lessThanFive = lessThan(value => `"${value}" is greater than 5`)(5);
+        lessThanFive = lessThan(value => `"${value}" is greater than 5`, 5);
 
         expect(lessThanFive(14)).to.deep.equal({ isValid: false, error: '"14" is greater than 5' });
         expect(lessThanFive(digits.length)).to.deep.equal({ isValid: false, error: '"10" is greater than 5' });

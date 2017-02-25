@@ -7,11 +7,10 @@ describe('createValidator', () => {
     it('returns a function', () => {
         expect(isEven).to.be.a('function');
         expect(isEven()).to.be.a('function');
-        expect(isEven()()).to.be.a('function');
     });
 
     it('returns valid result', () => {
-        const result = isEven('The value must be an even number')()(2);
+        const result = isEven('The value must be an even number')(2);
 
         expect(result).to.have.property('isValid')
             .that.is.a('boolean')
@@ -25,7 +24,7 @@ describe('createValidator', () => {
     it('works with error message as function', () => {
         const isOdd = createValidator(value => value % 2 !== 0);
 
-        const result = isOdd(value => `${value} is not an odd number`)()(2);
+        const result = isOdd(value => `${value} is not an odd number`)(2);
 
         expect(result).to.have.property('isValid')
             .that.is.a('boolean')

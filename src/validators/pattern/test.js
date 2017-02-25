@@ -3,7 +3,7 @@ import pattern from '.';
 
 describe('validators/pattern', () => {
     const digits = /^[0-9]+$/;
-    let onlyDigits = pattern('The value must contain only digits')(digits);
+    let onlyDigits = pattern('The value must contain only digits', digits);
 
     it('return valid result', () => {
         const result = { isValid: true, error: '' };
@@ -24,7 +24,7 @@ describe('validators/pattern', () => {
     });
 
     it('return invalid result with error message defined as function', () => {
-        onlyDigits = pattern(value => `"${value}" must contain only digits`)(digits);
+        onlyDigits = pattern(value => `"${value}" must contain only digits`, digits);
 
         expect(onlyDigits('lorem')).to.deep.equal({ isValid: false, error: '"lorem" must contain only digits' });
         expect(onlyDigits()).to.deep.equal({ isValid: false, error: '"undefined" must contain only digits' });
