@@ -9,7 +9,7 @@ import createSchema from '.';
 
 describe('createSchema', () => {
     const letters = /^[a-zA-Z]+$/;
-    const lengthValidator = (field, limit) => withProperty(greaterThan((value, minValue) => `${field} must have at least ${minValue + 1} characters`, limit), 'length')
+    const lengthValidator = (field, limit) => withProperty(greaterThan((value, minValue) => `${field} must have at least ${minValue + 1} characters`, limit), 'length');
 
     const firstNameValidator = createQueue(
         required('First name must be defined'),

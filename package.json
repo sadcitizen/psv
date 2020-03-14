@@ -20,8 +20,5 @@
     "eslint": "^6.8.0",
     "jest": "^25.1.0",
     "rimraf": "^3.0.2"
-  },
-  "dependencies": {
-    "doremi": "0.0.14"
   }
 }
