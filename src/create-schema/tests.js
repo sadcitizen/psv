@@ -1,12 +1,11 @@
-import { expect } from 'chai';
-import createQueue from '../create-queue';
-import createSchema from '.';
-import createValidator from '../create-validator';
-import withPredicate from '../with-predicate';
-import withProperty from '../with-property';
 import greaterThan from '../validators/greater-than';
 import pattern from '../validators/pattern';
 import required from '../validators/required';
+import createQueue from '../create-queue';
+import createValidator from '../create-validator';
+import withPredicate from '../with-predicate';
+import withProperty from '../with-property';
+import createSchema from '.';
 
 describe('createSchema', () => {
     const letters = /^[a-zA-Z]+$/;
@@ -46,7 +45,7 @@ describe('createSchema', () => {
         passwordConfirm: passwordConfirmValidator
     });
 
-    it('return valid result', () => {
+    test('return valid result', () => {
         const form = {
             firstName: 'John',
             lastName: '',
@@ -58,16 +57,10 @@ describe('createSchema', () => {
 
         const result = registerFormSchema(form);
 
-        expect(result).to.have.property('isValid')
-            .that.is.a('boolean')
-            .that.equal(true);
-
-        expect(result).to.have.property('errors')
-            .that.is.a('object')
-            .that.deep.equal({});
+        expect(result).toEqual({ isValid: true, errors: {} });
     });
 
-    it('return invalid result', () => {
+    test('return invalid result', () => {
         const form = {
             firstName: 'John22',
             lastName: 'Doe22',
@@ -88,12 +81,6 @@ describe('createSchema', () => {
 
         const result = registerFormSchema(form);
 
-        expect(result).to.have.property('isValid')
-            .that.is.a('boolean')
-            .that.equal(false);
-
-        expect(result).to.have.property('errors')
-            .that.is.a('object')
-            .that.deep.equal(errors);
+        expect(result).toEqual({ isValid: false, errors });
     });
 });
