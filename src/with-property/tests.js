@@ -13,12 +13,12 @@ describe('withProperty', () => {
     test('returns valid result', () => {
         const result = lengthGreaterThanSix('lorem ipsum');
 
-        expect(result).toEqual({ isValid: true, error: '' })
+        expect(result).toEqual({ isValid: true, error: '' });
     });
 
     test('returns invalid result', () => {
         const result = lengthGreaterThanSix('lorem');
 
-        expect(result).toEqual({ isValid: false, error: 'The value must be greater than 6' })
+        expect(result).toEqual({ isValid: false, error: 'The value must be greater than 6' });
     });
 });
