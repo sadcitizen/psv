@@ -1,5 +1,5 @@
-import withProperty from '.';
 import greaterThan from '../validators/greater-than';
+import withProperty from '.';
 
 describe('withProperty', () => {
     const message = (value, minValue) => `The value must be greater than ${minValue}`;
